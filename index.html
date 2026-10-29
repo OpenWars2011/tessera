@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Tessera ist die Dachgesellschaft hinter Aktienkompass, Apexo und dem IPTV Player.">
+<title>Tessera Holding</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: Mosaik – jedes Projekt ist ein Stein mit eigener Farbe, die Holding ist der Rahmen. */
+:root {
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --ink: #12141a;
+  --muted: #5b6070;
+  --line: #dfe2e8;
+  --kompass: #0f8a6c;
+  --apexo: #3b3fd8;
+  --iptv: #e0552f;
+  --kompass-soft: #e3f3ee;
+  --apexo-soft: #e7e8fb;
+  --iptv-soft: #fbe9e3;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1015; --surface: #161922; --ink: #eef0f5; --muted: #9aa0b2; --line: #272b37;
+    --kompass: #3fc79f; --apexo: #8c8ff7; --iptv: #ff8a63;
+    --kompass-soft: #12271f; --apexo-soft: #1b1c3a; --iptv-soft: #2e1a14;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1015; --surface: #161922; --ink: #eef0f5; --muted: #9aa0b2; --line: #272b37;
+  --kompass: #3fc79f; --apexo: #8c8ff7; --iptv: #ff8a63;
+  --kompass-soft: #12271f; --apexo-soft: #1b1c3a; --iptv-soft: #2e1a14;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+img { max-width: 100%; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.6; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--apexo); outline-offset: 3px; border-radius: 4px; }
+
+/* Kopf */
+header { padding-block: 28px; }
+header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.mark { display: grid; grid-template-columns: repeat(2, 12px); gap: 3px; }
+.mark i { width: 12px; height: 12px; border-radius: 3px; display: block; }
+.mark i:nth-child(1) { background: var(--kompass); }
+.mark i:nth-child(2) { background: var(--apexo); }
+.mark i:nth-child(3) { background: var(--iptv); }
+.mark i:nth-child(4) { background: transparent; border: 1.5px dashed var(--muted); }
+.brand b { font-family: var(--f-display); font-weight: 800; font-size: 22px; letter-spacing: -0.02em; }
+nav { display: flex; gap: 22px; font-size: 15px; }
+nav a { text-decoration: none; color: var(--muted); }
+nav a:hover { color: var(--ink); }
+
+/* Hero */
+.hero { padding-block: 48px 64px; }
+.hero h1 { font-family: var(--f-display); font-weight: 800; font-size: clamp(40px, 7.5vw, 88px); line-height: 0.98; letter-spacing: -0.035em; margin: 0; max-width: 14ch; text-wrap: balance; }
+.hero h1 span { white-space: nowrap; }
+.hero h1 .k { color: var(--kompass); } .hero h1 .a { color: var(--apexo); } .hero h1 .i { color: var(--iptv); }
+.hero p { font-size: clamp(17px, 2vw, 20px); color: var(--muted); max-width: 58ch; margin: 28px 0 0; }
+
+/* Mosaik */
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 18px; }
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.tile { --c: var(--ink); --soft: var(--surface); background: var(--soft); border-radius: 22px; padding: 26px 24px 24px; display: flex; flex-direction: column; gap: 18px; text-decoration: none; min-width: 0; transition: transform .25s ease; }
+.tile:hover { transform: translateY(-4px); }
+.tile.kompass { --c: var(--kompass); --soft: var(--kompass-soft); }
+.tile.apexo { --c: var(--apexo); --soft: var(--apexo-soft); }
+.tile.iptv { --c: var(--iptv); --soft: var(--iptv-soft); }
+.tile .top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.glyph { width: 44px; height: 44px; border-radius: 12px; background: var(--c); display: grid; place-items: center; }
+.glyph svg { width: 24px; height: 24px; stroke: var(--bg); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pill { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c); border: 1.5px solid currentColor; border-radius: 99px; padding: 3px 10px; white-space: nowrap; }
+.tile h3 { font-family: var(--f-display); font-weight: 800; font-size: 30px; letter-spacing: -0.025em; line-height: 1.05; margin: 0; color: var(--ink); }
+.tile p { margin: 0; color: var(--muted); font-size: 15.5px; }
+.stat { margin-top: auto; padding-top: 16px; border-top: 1.5px solid color-mix(in srgb, var(--c) 30%, transparent); display: flex; align-items: baseline; gap: 10px; }
+.stat strong { font-family: var(--f-display); font-weight: 800; font-size: 34px; letter-spacing: -0.02em; color: var(--c); font-variant-numeric: tabular-nums; }
+.stat span { font-size: 14px; color: var(--muted); }
+
+/* Brief */
+.letter { padding-block: 88px 24px; display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; }
+.letter h2 { font-family: var(--f-display); font-weight: 600; font-size: 28px; letter-spacing: -0.02em; line-height: 1.15; margin: 0; text-wrap: balance; }
+.letter .body { max-width: 64ch; font-size: 17.5px; }
+.letter .body p { margin: 0 0 18px; }
+
+/* Projekt-Details */
+.project { padding-block: 64px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; scroll-margin-top: 16px; }
+.project:first-of-type { margin-top: 64px; }
+.project .side { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.project .side .glyph { width: 52px; height: 52px; }
+.project.kompass { --c: var(--kompass); } .project.apexo { --c: var(--apexo); } .project.iptv { --c: var(--iptv); }
+.project h2 { font-family: var(--f-display); font-weight: 800; font-size: clamp(32px, 4.5vw, 48px); letter-spacing: -0.03em; line-height: 1; margin: 0 0 14px; }
+.project .lead { font-size: 19px; max-width: 58ch; margin: 0 0 32px; }
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; margin-bottom: 32px; }
+.facts div { background: var(--surface); padding: 16px 18px; min-width: 0; }
+.facts dt { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 4px 0 0; font-family: var(--f-display); font-weight: 600; font-size: 22px; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.features { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 32px; }
+.features li { padding-left: 20px; position: relative; min-width: 0; }
+.features li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 9px; height: 9px; border-radius: 2.5px; background: var(--c); }
+.features b { font-weight: 600; }
+.tech { margin-top: 28px; font-family: var(--f-mono); font-size: 13px; color: var(--muted); }
+
+/* Fuss */
+footer { border-top: 1px solid var(--line); margin-top: 32px; padding-block: 36px 48px; color: var(--muted); font-size: 14px; }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
+
+@media (max-width: 860px) {
+  .tiles { grid-template-columns: minmax(0, 1fr); }
+  .letter, .project { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .features { grid-template-columns: minmax(0, 1fr); }
+  .project .side { flex-direction: row; align-items: center; }
+}
+@media (max-width: 480px) { nav { gap: 16px; } .hero h1 span { white-space: normal; } }
+@media (prefers-reduced-motion: reduce) { .tile { transition: none; } .tile:hover { transform: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top" id="top" aria-label="Tessera Startseite">
+      <span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <b>Tessera</b>
+    </a>
+    <nav aria-label="Hauptnavigation">
+      <a href="#projekte">Projekte</a>
+      <a href="#brief">Über uns</a>
+      <a href="#aktienkompass">Aktienkompass</a>
+      <a href="#apexo">Apexo</a>
+      <a href="#iptv">IPTV Player</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Ein Dach für <span class="k">Aktien</span>, <span class="a">Banking</span> und <span class="i">Fernsehen</span>.</h1>
+      <p>Tessera ist die Dachgesellschaft hinter Aktienkompass, Apexo und dem IPTV Player. Jedes Projekt hat sein eigenes Team, seine eigene Marke und seinen eigenen Weg. Tessera gibt ihnen Werkzeuge, Infrastruktur und Zeit.</p>
+    </div>
+  </section>
+
+  <section id="projekte">
+    <div class="wrap">
+      <p class="eyebrow">Unsere Projekte</p>
+      <div class="tiles">
+        <a class="tile kompass" href="#aktienkompass">
+          <div class="top">
+            <span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5 13 13l-4.5 2.5L11 11z"/></svg></span>
+            <span class="pill">Web-App</span>
+          </div>
+          <h3>Aktienkompass</h3>
+          <p>Aktien weltweit finden, bewerten und beobachten. Mit Screener, Scores und fairem Wert.</p>
+          <div class="stat"><strong>42'000+</strong><span>Aktien aus 41 Ländern</span></div>
+        </a>
+        <a class="tile apexo" href="#apexo">
+          <div class="top">
+            <span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20 12 4l8 16"/><path d="M7.5 14h9"/></svg></span>
+            <span class="pill">Prototyp</span>
+          </div>
+          <h3>Apexo</h3>
+          <p>Eine Schweizer Digitalbank von Grund auf: Konten, Karten, Zahlungen, Depot und Kredite.</p>
+          <div class="stat"><strong>3</strong><span>Kartenpläne: Core, Pulse, Apex</span></div>
+        </a>
+        <a class="tile iptv" href="#iptv">
+          <div class="top">
+            <span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="m8 2 4 4 4-4"/></svg></span>
+            <span class="pill">Windows</span>
+          </div>
+          <h3>IPTV Player</h3>
+          <p>Kostenloses Fernsehen am PC und auf dem Fernseher, mit TV-Programm und Live-Sport.</p>
+          <div class="stat"><strong>24'000+</strong><span>Sender und Radios</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap letter" id="brief">
+    <h2>Warum es Tessera gibt</h2>
+    <div class="body">
+      <p>Ein Mosaik besteht aus vielen kleinen Steinen. Jeder hat seine eigene Farbe, erst zusammen ergeben sie ein Bild. So arbeiten wir: Aktienkompass, Apexo und der IPTV Player sind eigenständige Produkte mit eigenen Nutzern und eigenen Zielen.</p>
+      <p>Was sie verbindet, ist die Art, wie sie gebaut werden. Wir entwickeln selbst, von der Datenbank bis zur Oberfläche. Wir erklären Dinge in klarer Sprache. Und wir bauen lieber etwas Echtes, das man ausprobieren kann, als eine Folie, die nur davon erzählt.</p>
+      <p>Das vierte Feld in unserem Logo ist absichtlich leer. Es ist für das nächste Projekt.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <article class="project kompass" id="aktienkompass">
+      <div class="side">
+        <span class="glyph" style="--c: var(--kompass)" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5 13 13l-4.5 2.5L11 11z"/></svg></span>
+        <span class="pill" style="--c: var(--kompass)">Free &amp; Pro</span>
+      </div>
+      <div>
+        <h2>Aktienkompass</h2>
+        <p class="lead">Die Aktienplattform für Privatanleger. Suchen, filtern, vergleichen und mit bewährten Strategien bewerten, ohne Tabellen selbst zu pflegen.</p>
+        <dl class="facts">
+          <div><dt>Aktien</dt><dd>42'000+</dd></div>
+          <div><dt>Länder</dt><dd>41</dd></div>
+          <div><dt>Free</dt><dd>10 / Tag</dd></div>
+          <div><dt>Pro</dt><dd>4,99 € / Mt.</dd></div>
+        </dl>
+        <ul class="features">
+          <li><b>Screener</b> mit Filtern für Land, Sektor, Börse, KGV, KBV, Dividende und 200-Tage-Linie</li>
+          <li><b>Scores</b> nach Levermann, Dividenden- und High-Growth-Strategie mit allen Kriterien</li>
+          <li><b>Fairer Wert</b> nach Graham, DCF, KGV-Methode und Analystenzielen</li>
+          <li><b>Analysten und Aktionäre</b>: Kaufen, Halten, Verkaufen in Prozent, Insider und grösste Fonds</li>
+          <li><b>Topscorer</b> je Strategie aus den 800 grössten Aktien</li>
+          <li><b>Watchlist</b> und Vergleich von bis zu vier Aktien</li>
+        </ul>
+        <p class="tech">Inkl. OTC Markets (USA) · Liste wird täglich aktualisiert · Python</p>
+      </div>
+    </article>
+
+    <article class="project apexo" id="apexo">
+      <div class="side">
+        <span class="glyph" style="--c: var(--apexo)" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20 12 4l8 16"/><path d="M7.5 14h9"/></svg></span>
+        <span class="pill" style="--c: var(--apexo)">Core Banking</span>
+      </div>
+      <div>
+        <h2>Apexo</h2>
+        <p class="lead">Eine vollständige Digitalbank für die Schweiz, gebaut auf Apache Fineract. Vom Privatkonto über die Karte bis zur Hypothek läuft alles in einem System.</p>
+        <dl class="facts">
+          <div><dt>Basis</dt><dd>Fineract 1.15</dd></div>
+          <div><dt>Pläne</dt><dd>Core · Pulse · Apex</dd></div>
+          <div><dt>Sparzins</dt><dd>bis 2.50 %</dd></div>
+          <div><dt>Säule 3a</dt><dd>CHF 7'258</dd></div>
+        </dl>
+        <ul class="features">
+          <li><b>Konten</b>: Privat, Sparen, Invest, Vorsorge 3a, Reisekonto und Kinderkonto</li>
+          <li><b>Zahlungen</b> mit eigenen Schweizer IBANs, SIC/euroSIC nach ISO 20022 und QR-Rechnung</li>
+          <li><b>Karten</b> mit Autorisierung nach ISO 8583, Reservierung, Clearing und Cashback</li>
+          <li><b>Depot</b> mit Market- und Limit-Orders inklusive Umsatzabgabe</li>
+          <li><b>Kredite</b>: Hypotheken, Lombard und Firmenkredite, Vier-Augen-Prinzip ab CHF 1 Mio.</li>
+          <li><b>Login mit Passkey</b> über Face ID, Fingerabdruck oder Windows Hello</li>
+        </ul>
+        <p class="tech">Dazu Firmenkonten, Pay Later, Punkteprogramm und KI-Support · Java, PostgreSQL, Node.js</p>
+      </div>
+    </article>
+
+    <article class="project iptv" id="iptv">
+      <div class="side">
+        <span class="glyph" style="--c: var(--iptv)" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="m8 2 4 4 4-4"/></svg></span>
+        <span class="pill" style="--c: var(--iptv)">Kostenlos</span>
+      </div>
+      <div>
+        <h2>IPTV Player</h2>
+        <p class="lead">Ein kostenloser Player für Windows, der frei verfügbare Sender aus aller Welt abspielt. Mit einem Klick läuft der Sender auch auf dem Fernseher.</p>
+        <dl class="facts">
+          <div><dt>Sender</dt><dd>24'000+</dd></div>
+          <div><dt>Sportarten</dt><dd>15 live</dd></div>
+          <div><dt>Newsquellen</dt><dd>18</dd></div>
+          <div><dt>Preis</dt><dd>Gratis</dd></div>
+        </dl>
+        <ul class="features">
+          <li><b>Sender und Radios</b> sortiert nach Land, Sprache und Art</li>
+          <li><b>TV-Programm</b> für tausende Sender, eigene XMLTV-Quellen möglich</li>
+          <li><b>Auf den Fernseher</b> per Chromecast, Google TV, AirPlay oder DLNA</li>
+          <li><b>Live-Sport</b> mit Ergebnissen, Tabellen und Sport-News</li>
+          <li><b>Sender-Check</b> zeigt, welche Sender gerade laufen</li>
+          <li><b>Vom Handy</b> im eigenen WLAN, geschützt mit Login</li>
+        </ul>
+        <p class="tech">Windows 10 und 11 · Installer ohne Administratorrechte · Node.js</p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="brand"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><b style="font-size:17px">Tessera</b></span>
+    <span>Aktienkompass · Apexo · IPTV Player &nbsp;·&nbsp; © 2026 Tessera</span>
+  </div>
+</footer>
+</body>
+</html>
